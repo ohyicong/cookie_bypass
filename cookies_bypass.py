@@ -2,12 +2,12 @@
 from selenium import webdriver
 import os
 import time
-
+#import getpass
 options = webdriver.ChromeOptions()
 
 #Find your google cookie directory
-path_to_chrome_cookie="user-data-dir=C:\\Users\\UserName\\AppData\\Local\\Google\\Chrome\\User Data"
-options.add_argument(path_to_chrome_cookie) #Path to your chrome profile
+path_to_chrome_cookie="user-data-dir=C:\\Users\\OHyic\\AppData\\Local\\Google\\Chrome\\User Data"
+#options.add_argument(path_to_chrome_cookie) #Path to your chrome profile
 driver = webdriver.Chrome(os.getcwd()+"\\webdriver\\chromedriver.exe", options=options)
 
 #go to the website that you want to bypass
