@@ -1,13 +1,17 @@
 #selenium libraries
+import subprocess
 from selenium import webdriver
 import os
 import time
+import getpass
+
+#Shutting dnow all chrome processes before using the program
+print("[INFO] Shutting down all chrome processes to use this program.")
+subprocess.call("TASKKILL /f  /IM  CHROME.EXE")
 #import getpass
 options = webdriver.ChromeOptions()
-
-
-#Find your google cookie directory
-path_to_chrome_cookie="user-data-dir=C:\\Users\\OHyic\\AppData\\Local\\Google\\Chrome\\User Data"
+#Find your google cookie directory. I have automated this part, if it doesn't work please refer to my video to find your cookie folder.
+path_to_chrome_cookie="user-data-dir=C:\\Users\\%s\\AppData\\Local\\Google\\Chrome\\User Data"%(getpass.getuser())
 #Path to your chrome profile
 options.add_argument(path_to_chrome_cookie) 
 try:
@@ -17,9 +21,7 @@ except:
     print("[-] 2. Please update the chromedriver.exe in the webdriver folder according to your chrome version:https://chromedriver.chromium.org/downloads")
 #go to the website that you want to bypass
 driver.get("https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin")
-time.sleep(30)
-#dont forget to close your driver, as chrome cookie can only work on one thread.
-driver.close()
+
 
 
 
