@@ -8,6 +8,7 @@ import getpass
 #Shutting dnow all chrome processes before using the program
 print("[INFO] Shutting down all chrome processes to use this program.")
 subprocess.call("TASKKILL /f  /IM  CHROME.EXE")
+time.sleep(2)
 #import getpass
 options = webdriver.ChromeOptions()
 #Find your google cookie directory. I have automated this part, if it doesn't work please refer to my video to find your cookie folder.
